@@ -33,8 +33,8 @@ const Registration: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="bg-white p-8 rounded shadow-lg max-w-md w-full">
+    <div className="bg-gray-100 min-h-fit flex items-center justify-center">
+      <div className="bg-white mt-6 p-8 rounded shadow-lg max-w-md w-full">
         <h1 className="text-2xl font-semibold mb-4">Registration</h1>
         <form>
           <div className="mb-4">
@@ -83,6 +83,7 @@ const Registration: React.FC = () => {
           >
             Register
           </button>
+          <p>Already have an Account Login</p>
         </form>
       </div>
     </div>

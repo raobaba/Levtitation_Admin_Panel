@@ -3,7 +3,8 @@ import ejs from "ejs";
 import dotenv from "dotenv";
 import cors from "cors";
 import Connection from "./Config/db";
-import router from './Route/auth.route';
+import authRouter from './Route/auth.route';
+import formRouter from "./Route/form.route";
 dotenv.config();
 const app = express();
 app.use(express.static("public"));
@@ -13,7 +14,8 @@ app.use(cors());
 app.get('/', (req, res) => {
   res.send("testing");
 });
-app.use('/api/auth',router);
+app.use('/api/auth',authRouter);
+app.use('/api/form',formRouter);
 const PORT = process.env.PORT || 3000;
 Connection();
 app.listen(PORT, () =>
