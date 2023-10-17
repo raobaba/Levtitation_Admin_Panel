@@ -2,12 +2,10 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import authReducer from './Reducer/authReducer';
-import { formReducer } from './Reducer/formReducer';
 
 // Combine multiple reducers into a single root reducer
 const rootReducer = combineReducers({
   auth: authReducer,
-  form: formReducer,
 });
 
 // Apply middleware (Redux Thunk) to handle async actions

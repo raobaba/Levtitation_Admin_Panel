@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { login } from '../../Redux/Actions/authActions'; // Update the import path
 
 interface LoginForm {
   email: string;
@@ -7,6 +8,8 @@ interface LoginForm {
 }
 
 const Login: React.FC = () => {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState<LoginForm>({
     email: '',
     password: '',
@@ -17,27 +20,14 @@ const Login: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleLogin = async () => {
-    // Perform client-side validation
+  const handleUserLogin = () => {
     if (!formData.email || !formData.password) {
       alert('Please fill in all fields.');
       return;
     }
 
-    try {
-      const response = await axios.post('http://localhost:3000/api/authentication/login', formData);
-
-      if (response.status === 200) {
-        // Authentication successful, you can redirect the user here
-        // You may use React Router for navigation
-        alert('Login successful');
-      } else {
-        alert('Login failed. Please check your credentials.');
-      }
-    } catch (error) {
-      console.error('An error occurred while trying to log in:', error);
-      alert('An error occurred. Please try again later.');
-    }
+    // Dispatch the login action with the form data
+    dispatch(login(formData.email, formData.password));
   };
 
   return (
@@ -73,12 +63,12 @@ const Login: React.FC = () => {
           </div>
           <button
             type="button"
-            onClick={handleLogin}
+            onClick={handleUserLogin}
             className="w-full bg-blue-500 text-white rounded py-2 hover:bg-blue-700"
           >
             Login
           </button>
-          <p>Don't have an account Register</p>
+          <p>Don't have an account? <a href="/register">Register</a></p>
         </form>
       </div>
     </div>

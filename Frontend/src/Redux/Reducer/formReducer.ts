@@ -1,5 +1,5 @@
 // src/redux/reducers/formReducer.ts
-import { FormAction, FormState, FormActionTypes } from '../actionType/formActionType';
+import { FormAction, FormState, FormActionTypes } from '../ActionType/formActionType';
 
 const initialState: FormState = {
   submissions: [],

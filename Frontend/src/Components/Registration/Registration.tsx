@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'; // Import the useDispatch hook
-import { register } from '../../Redux/Actions/authActions'; // Import your register action
+import { useDispatch } from 'react-redux';
+import { register } from '../../Redux/Actions/authActions'; // Update the import path
 
 interface RegistrationForm {
   name: string;
@@ -8,8 +8,8 @@ interface RegistrationForm {
   password: string;
 }
 
-const Registration: React.FC = () => {
-  const dispatch = useDispatch(); // Get the dispatch function from Redux
+const Register: React.FC = () => {
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState<RegistrationForm>({
     name: '',
@@ -83,11 +83,11 @@ const Registration: React.FC = () => {
           >
             Register
           </button>
-          <p>Already have an Account Login</p>
+          <p>Already have an Account? <a href="/login">Login</a></p>
         </form>
       </div>
     </div>
   );
 };
 
-export default Registration;
+export default Register;

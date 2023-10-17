@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import { AuthActionTypes, AuthAction } from '../ActionType/authActionType';
-import { authenticate, registerUser } from '../../API/authApi'; // Implement these functions
+import { authenticate, registerUser } from '../../API/authApi';
 
 export const login = (email: string, password: string) => {
   return async (dispatch: Dispatch<AuthAction>) => {
@@ -15,7 +15,7 @@ export const login = (email: string, password: string) => {
   };
 };
 
-export const register = (name:string,email: string, password: string) => {
+export const register = (name: string, email: string, password: string) => {
   return async (dispatch: Dispatch<AuthAction>) => {
     dispatch({ type: AuthActionTypes.REGISTER_REQUEST });
     try {
